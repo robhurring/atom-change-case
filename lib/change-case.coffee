@@ -20,17 +20,15 @@ makeCommand = (command) ->
 
     method = Commands[command]
     converter = ChangeCase[method]
-    
+
     updateCurrentWord editor, (word) ->
       converter(word)
 
 updateCurrentWord = (editor, callback) ->
-  currentSelection = editor.getSelectedBufferRange()
+  selection = editor.getSelection()
 
   # make sure we have a current selection
-  if currentSelection.start != currentSelection.end
-    word = editor.getSelectedText()
-    newWord = callback(word)
-
-    editor.setTextInBufferRange(currentSelection, newWord)
-    editor.moveCursorToEndOfWord()
+  if selection?
+    text = selection.getText()
+    newText = callback(text)
+    selection.insertText(newText)
