@@ -27,8 +27,9 @@ makeCommand = (command) ->
 updateCurrentWord = (editor, callback) ->
   selection = editor.getSelection()
 
+  text = selection.getText()
+
   # make sure we have a current selection
-  if selection?
-    text = selection.getText()
+  if text
     newText = callback(text)
     selection.insertText(newText)
