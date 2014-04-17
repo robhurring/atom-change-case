@@ -7,6 +7,8 @@ Commands =
   param: 'paramCase'
   path: 'pathCase'
   constant: 'constantCase'
+  upper: 'upperCase'
+  lower: 'lowerCase'
 
 module.exports =
   activate: (state) ->
