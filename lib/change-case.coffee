@@ -6,9 +6,14 @@ Commands =
   dot: 'dotCase'
   lower: 'lowerCase'
   param: 'paramCase'
+  pascal: 'pascalCase'
   path: 'pathCase'
+  sentence: 'sentenceCase'
   snake: 'snakeCase'
+  swap: 'swapCase'
+  title: 'titleCase'
   upper: 'upperCase'
+  upperFirst: 'upperCaseFirst'
 
 module.exports =
   activate: (state) ->
