@@ -5,6 +5,7 @@ Commands =
   constant: 'constantCase'
   dot: 'dotCase'
   lower: 'lowerCase'
+  lowerFirst: 'lowerCaseFirst'
   param: 'paramCase'
   pascal: 'pascalCase'
   path: 'pathCase'
