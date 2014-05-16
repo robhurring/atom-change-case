@@ -10,7 +10,7 @@ Commands =
   path: 'pathCase'
   sentence: 'sentenceCase'
   snake: 'snakeCase'
-  swap: 'swapCase'
+  switch: 'switchCase'
   title: 'titleCase'
   upper: 'upperCase'
   upperFirst: 'upperCaseFirst'
