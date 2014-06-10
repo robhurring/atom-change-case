@@ -7,8 +7,15 @@ A quick way to change the case of the current selection.
 ## Commands
 
 * change-case:camel
-* change-case:snake
-* change-case:dot
-* change-case:param
-* change-case:path
 * change-case:constant
+* change-case:dot
+* change-case:lower
+* change-case:param
+* change-case:pascal
+* change-case:path
+* change-case:sentence
+* change-case:snake
+* change-case:swap
+* change-case:title
+* change-case:upper
+* change-case:upperFirst

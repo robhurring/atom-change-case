@@ -2,13 +2,19 @@ ChangeCase = require 'change-case'
 
 Commands =
   camel: 'camelCase'
-  snake: 'snakeCase'
-  dot: 'dotCase'
-  param: 'paramCase'
-  path: 'pathCase'
   constant: 'constantCase'
-  upper: 'upperCase'
+  dot: 'dotCase'
   lower: 'lowerCase'
+  lowerFirst: 'lowerCaseFirst'
+  param: 'paramCase'
+  pascal: 'pascalCase'
+  path: 'pathCase'
+  sentence: 'sentenceCase'
+  snake: 'snakeCase'
+  switch: 'switchCase'
+  title: 'titleCase'
+  upper: 'upperCase'
+  upperFirst: 'upperCaseFirst'
 
 module.exports =
   activate: (state) ->
