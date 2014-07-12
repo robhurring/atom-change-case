@@ -29,12 +29,11 @@ makeCommand = (command) ->
     method = Commands[command]
     converter = ChangeCase[method]
 
-    updateCurrentWord editor, (word) ->
-      converter(word)
+    for selection in editor.getSelections()
+      updateCurrentWord selection, (word) ->
+        converter(word)
 
-updateCurrentWord = (editor, callback) ->
-  selection = editor.getSelection()
-
+updateCurrentWord = (selection, callback) ->
   text = selection.getText()
 
   # make sure we have a current selection
