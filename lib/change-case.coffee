@@ -29,16 +29,12 @@ makeCommand = (command) ->
     method = Commands[command]
     converter = ChangeCase[method]
 
-    updateCurrentWord editor, (word) ->
-      converter(word)
+    options = {}
+    options.wordRegex = /^[\t ]*$|[^\s\/\\\(\)"':,\.;<>~!@#\$%\^&\*\|\+=\[\]\{\}`\?]+/g
+    for cursor in editor.getCursors()
+      position = cursor.getBufferPosition()
 
-updateCurrentWord = (editor, callback) ->
-  selection = editor.getLastSelection()
-
-  text = selection.getText()
-
-  # make sure we have a current selection
-  if text
-    newText = callback(text)
-    console.log newText
-    selection.insertText(newText)
+      range = cursor.getCurrentWordBufferRange(options)
+      text = editor.getTextInBufferRange(range)
+      newText = converter(text)
+      editor.setTextInBufferRange(range, newText)
