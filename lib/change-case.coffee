@@ -33,11 +33,12 @@ makeCommand = (command) ->
       converter(word)
 
 updateCurrentWord = (editor, callback) ->
-  selection = editor.getSelection()
+  selection = editor.getLastSelection()
 
   text = selection.getText()
 
   # make sure we have a current selection
   if text
     newText = callback(text)
+    console.log newText
     selection.insertText(newText)
