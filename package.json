@@ -5,6 +5,12 @@
   "description": "Change the case of selected text using node-change-case",
   "repository": "https://github.com/robhurring/atom-change-case.git",
   "license": "MIT",
+  "author": "Rob Hurring",
+  "contributors": [
+    "Philip Blyth",
+    "Sergey Fedorov",
+    "Timo Sand <timo.j.sand@gmail.com>"
+  ],
   "engines": {
     "atom": ">0.50.0"
   },
