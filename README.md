@@ -1,4 +1,5 @@
 # Change Case Plugin
+[![Build Status](https://travis-ci.org/robhurring/atom-change-case.svg)](https://travis-ci.org/robhurring/atom-change-case)
 
 A wrapper around [node-change-case](https://github.com/blakeembrey/node-change-case) for atom.
 
