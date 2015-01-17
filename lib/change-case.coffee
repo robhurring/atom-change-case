@@ -22,7 +22,7 @@ module.exports =
       makeCommand(command)
 
 makeCommand = (command) ->
-  atom.workspaceView.command "change-case:#{command}", ->
+  atom.commands.add 'atom-workspace', "change-case:#{command}", ->
     editor = atom.workspace.getActiveEditor()
     return unless editor?
 
