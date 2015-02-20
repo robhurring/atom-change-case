@@ -1,7 +1,7 @@
 {
   "name": "change-case",
   "main": "./lib/change-case",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Change the case of selected text using node-change-case",
   "repository": "https://github.com/robhurring/atom-change-case.git",
   "license": "MIT",
