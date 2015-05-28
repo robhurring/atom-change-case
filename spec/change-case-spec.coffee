@@ -11,6 +11,8 @@ describe "changing case", ->
     runs ->
       workspaceView = atom.views.getView(atom.workspace)
       editor = atom.workspace.getActiveTextEditor()
+      editor.selectAll();
+      editor.backspace();
 
   describe "when empty editor", ->
     it "should do nothing", ->
