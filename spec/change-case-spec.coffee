@@ -1,12 +1,7 @@
-{WorkspaceView} = require 'atom'
-
 describe "changing case", ->
-  [editorView, editor, buffer] = []
+  [workspaceView, editor] = []
 
   beforeEach ->
-    atom.workspaceView = new WorkspaceView
-    atom.workspaceView.attachToDom()
-
     waitsForPromise ->
       atom.workspace.open('sample.js')
 
@@ -14,14 +9,15 @@ describe "changing case", ->
       atom.packages.activatePackage('change-case')
 
     runs ->
-      editorView = atom.workspaceView.getActiveView()
-      editor = editorView.getModel()
-      buffer = editor.getBuffer()
+      workspaceView = atom.views.getView(atom.workspace)
+      editor = atom.workspace.getActiveTextEditor()
+      editor.selectAll();
+      editor.backspace();
 
   describe "when empty editor", ->
     it "should do nothing", ->
       editor.setText ''
-      atom.workspaceView.trigger 'change-case:camel'
+      atom.commands.dispatch(workspaceView, 'change-case:camel')
       expect(editor.getText()).toBe ''
 
   describe "when text is selected", ->
@@ -30,5 +26,5 @@ describe "changing case", ->
       editor.moveToBottom()
       editor.selectToTop()
       editor.selectAll()
-      atom.workspaceView.trigger 'change-case:camel'
+      atom.commands.dispatch(workspaceView, 'change-case:camel')
       expect(editor.getText()).toBe 'workspaceView'
