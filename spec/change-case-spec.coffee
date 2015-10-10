@@ -28,3 +28,12 @@ describe "changing case", ->
       editor.selectAll()
       atom.commands.dispatch(workspaceView, 'change-case:camel')
       expect(editor.getText()).toBe 'workspaceView'
+
+  describe "when text with more than one word is selected", ->
+    it "should camelcase selected text", ->
+      editor.setText 'the quick brown fox jumps over the lazy dog'
+      editor.moveToBottom()
+      editor.selectToTop()
+      editor.selectAll()
+      atom.commands.dispatch(workspaceView, 'change-case:camel')
+      expect(editor.getText()).toBe 'theQuickBrownFoxJumpsOverTheLazyDog'
