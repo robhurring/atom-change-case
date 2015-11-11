@@ -29,12 +29,8 @@ makeCommand = (command) ->
     method = Commands[command]
     converter = ChangeCase[method]
 
-    options = {}
-    options.wordRegex = /^[\t ]*$|[^\s\/\\\(\)"':,\.;<>~!@#\$%\^&\*\|\+=\[\]\{\}`\?]+/g
-    for cursor in editor.getCursors()
-      position = cursor.getBufferPosition()
-
-      range = cursor.getCurrentWordBufferRange(options)
+    for selection in editor.getSelections()
+      range = selection.getBufferRange()
       text = editor.getTextInBufferRange(range)
       newText = converter(text)
       editor.setTextInBufferRange(range, newText)
