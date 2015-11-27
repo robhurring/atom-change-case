@@ -37,3 +37,46 @@ describe "changing case", ->
       editor.selectAll()
       atom.commands.dispatch(workspaceView, 'change-case:camel')
       expect(editor.getText()).toBe 'theQuickBrownFoxJumpsOverTheLazyDog'
+
+  describe "when text selection is empty", ->
+    it "should change case of the word nearest to the cursor", ->
+      editor.setText 'workspaceView'
+      atom.commands.dispatch(workspaceView, 'change-case:upper')
+      expect(editor.getText()).toBe 'WORKSPACEVIEW'
+
+  describe "when there are multiple selections", ->
+    it "should change case of each selection", ->
+      editor.setText '''
+      the quick brown fox
+      jumps over the lazy dog
+      '''
+      editor.selectAll()
+      editor.splitSelectionsIntoLines()
+
+      atom.commands.dispatch(workspaceView, 'change-case:camel')
+
+      expect(editor.lineTextForBufferRow(0)).toContain 'theQuickBrownFox'
+      expect(editor.lineTextForBufferRow(1)).toContain 'jumpsOverTheLazyDog'
+
+    it "should undo/redo changes in batch", ->
+      editor.setText '''
+      the quick brown fox
+      jumps over the lazy dog
+      '''
+      editor.selectAll()
+      editor.splitSelectionsIntoLines()
+
+      atom.commands.dispatch(workspaceView, 'change-case:camel')
+
+      expect(editor.lineTextForBufferRow(0)).toContain 'theQuickBrownFox'
+      expect(editor.lineTextForBufferRow(1)).toContain 'jumpsOverTheLazyDog'
+
+      editor.undo()
+
+      expect(editor.lineTextForBufferRow(0)).toContain 'the quick brown fox'
+      expect(editor.lineTextForBufferRow(1)).toContain 'jumps over the lazy dog'
+
+      editor.redo()
+
+      expect(editor.lineTextForBufferRow(0)).toContain 'theQuickBrownFox'
+      expect(editor.lineTextForBufferRow(1)).toContain 'jumpsOverTheLazyDog'
