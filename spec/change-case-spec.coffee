@@ -44,6 +44,25 @@ describe "changing case", ->
       atom.commands.dispatch(workspaceView, 'change-case:upper')
       expect(editor.getText()).toBe 'WORKSPACEVIEW'
 
+    it "should select the word nearest to the cursor", ->
+      editor.setText 'workspaceView'
+      atom.commands.dispatch(workspaceView, 'change-case:upper')
+      expect(editor.getSelectedText()).toBe 'WORKSPACEVIEW'
+
+  describe "when selected text length changes after changing its case", ->
+    it "should modify selection range to fit new text", ->
+      editor.setText 'workspace.view'
+      editor.selectAll()
+
+      atom.commands.dispatch(workspaceView, 'change-case:upper')
+      expect(editor.getSelectedText()).toBe 'WORKSPACE.VIEW'
+
+      atom.commands.dispatch(workspaceView, 'change-case:camel')
+      expect(editor.getSelectedText()).toBe 'workspaceView'
+
+      atom.commands.dispatch(workspaceView, 'change-case:dot')
+      expect(editor.getSelectedText()).toBe 'workspace.view'
+
   describe "when there are multiple selections", ->
     it "should change case of each selection", ->
       editor.setText '''

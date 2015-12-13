@@ -30,13 +30,10 @@ makeCommand = (command) ->
     converter = ChangeCase[method]
 
     editor.mutateSelectedText (selection) ->
-      range = selection.getBufferRange()
       if selection.isEmpty()
         selection.selectWord()
 
       text = selection.getText()
       newText = converter(text)
-      selection.deleteSelectedText()
-      selection.insertText(newText)
 
-      selection.setBufferRange(range)
+      selection.insertText newText, select: true
