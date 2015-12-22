@@ -7,6 +7,10 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
-'atom-workspace':
+'.platform-darwin atom-workspace':
   'cmd-k cmd-c': 'change-case:camel'
   'cmd-k cmd-s': 'change-case:snake'
+
+'.platform-win32 atom-workspace':
+  'ctrl-k ctrl-c': 'change-case:camel'
+  'ctrl-k ctrl-s': 'change-case:snake'
