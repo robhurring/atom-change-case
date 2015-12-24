@@ -9,12 +9,14 @@
   "contributors": [
     "Philip Blyth",
     "Sergey Fedorov",
-    "Timo Sand <timo.j.sand@gmail.com>"
+    "Timo Sand <timo.j.sand@gmail.com>",
+    "Ori Livni"
   ],
   "engines": {
     "atom": ">0.50.0"
   },
   "dependencies": {
-    "change-case": "~1.0.6"
+    "change-case": "~1.0.6",
+    "lodash.kebabcase": "^3.0.1"
   }
 }

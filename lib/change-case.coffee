@@ -1,9 +1,11 @@
 ChangeCase = require 'change-case'
+kebabCase = require 'lodash.kebabcase'
 
 Commands =
   camel: 'camelCase'
   constant: 'constantCase'
   dot: 'dotCase'
+  kebab: 'kebabCase'
   lower: 'lowerCase'
   lowerFirst: 'lowerCaseFirst'
   param: 'paramCase'
@@ -28,6 +30,7 @@ makeCommand = (command) ->
 
     method = Commands[command]
     converter = ChangeCase[method]
+    converter = kebabCase if Commands.kebab == method
 
     for selection in editor.getSelections()
       range = selection.getBufferRange()
