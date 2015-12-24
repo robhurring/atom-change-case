@@ -9,7 +9,8 @@
   "contributors": [
     "Philip Blyth",
     "Sergey Fedorov",
-    "Timo Sand <timo.j.sand@gmail.com>"
+    "Timo Sand <timo.j.sand@gmail.com>",
+    "Ori Livni"
   ],
   "engines": {
     "atom": ">0.50.0"
