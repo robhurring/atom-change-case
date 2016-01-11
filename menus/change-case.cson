@@ -1,0 +1,26 @@
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Change Case'
+      'submenu': [
+          {'label': 'lowercase',      'command': 'change-case:lower'},
+          {'label': 'lOWERCASEFIRST', 'command': 'change-case:lowerFirst'},
+          {'label': 'sentence case',  'command': 'change-case:sentence'},
+          {'label': 'Title Case',     'command': 'change-case:title'},
+          {'label': 'UPPERCASE',      'command': 'change-case:upper'},
+          {'label': 'Uppercasefirst', 'command': 'change-case:upperFirst'},
+          {'type': 'separator'},
+          {'label': 'camelCase',      'command': 'change-case:camel'},
+          {'label': 'CONSTANT_CASE',  'command': 'change-case:constant'},
+          {'label': 'dot.case',       'command': 'change-case:dot'},
+          {'label': 'param-case',     'command': 'change-case:param'},
+          {'label': 'PascalCase',     'command': 'change-case:pascal'},
+          {'label': 'path/case',      'command': 'change-case:path'},
+          {'label': 'snake_case',     'command': 'change-case:snake'},
+          {'type': 'separator'},
+          {'label': 'Swap Case',      'command': 'change-case:switch'}
+        ]
+    ]
+  }
+]
