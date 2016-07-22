@@ -19,7 +19,7 @@
           {'label': 'path/case',      'command': 'change-case:path'},
           {'label': 'snake_case',     'command': 'change-case:snake'},
           {'type': 'separator'},
-          {'label': 'Swap Case',      'command': 'change-case:switch'}
+          {'label': 'Swap Case',      'command': 'change-case:swap'}
         ]
     ]
   }
