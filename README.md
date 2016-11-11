@@ -21,3 +21,4 @@ A quick way to change the case of the current selection.
 * change-case:title
 * change-case:upper
 * change-case:upperFirst
+* change-case:kebab
