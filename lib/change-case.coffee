@@ -42,4 +42,4 @@ makeCommand = (command) ->
       selection.insertText newText, select: true
 
 getEditorFromElement = (element) ->
-  element.closest('atom-text-editor')?.getModel();
+  element.closest('atom-text-editor')?.getModel()
