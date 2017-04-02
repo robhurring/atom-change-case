@@ -1,9 +1,11 @@
 describe "changing case", ->
-  workspaceView = null
+  [workspaceView, activationPromise] = []
 
   beforeEach ->
-    waitsForPromise -> atom.packages.activatePackage('change-case')
-    runs -> workspaceView = atom.views.getView(atom.workspace)
+    runs ->
+      workspaceView = atom.views.getView(atom.workspace)
+      jasmine.attachToDOM(workspaceView)
+      activationPromise = atom.packages.activatePackage('change-case')
 
   editorVariants =
     'mini text editor': ->
@@ -15,7 +17,8 @@ describe "changing case", ->
     'normal text editor': ->
       atom.workspace.open('sample.js').then ->
         editor = atom.workspace.getActiveTextEditor()
-        eventDispatcher = workspaceView
+        editorElement = atom.views.getView(editor)
+        eventDispatcher = editorElement
         {editor, eventDispatcher}
 
   Object.keys(editorVariants).forEach (editorName) ->
@@ -37,6 +40,7 @@ describe "changing case", ->
         it "should do nothing", ->
           editor.setText ''
           atom.commands.dispatch(eventDispatcher, 'change-case:camel')
+          waitsForPromise -> activationPromise
           expect(editor.getText()).toBe ''
 
       describe "when text is selected", ->
@@ -46,6 +50,7 @@ describe "changing case", ->
           editor.selectToTop()
           editor.selectAll()
           atom.commands.dispatch(eventDispatcher, 'change-case:camel')
+          waitsForPromise -> activationPromise
           expect(editor.getText()).toBe 'workspaceView'
 
       describe "when text with more than one word is selected", ->
@@ -55,17 +60,20 @@ describe "changing case", ->
           editor.selectToTop()
           editor.selectAll()
           atom.commands.dispatch(eventDispatcher, 'change-case:camel')
+          waitsForPromise -> activationPromise
           expect(editor.getText()).toBe 'theQuickBrownFoxJumpsOverTheLazyDog'
 
       describe "when text selection is empty", ->
         it "should change case of the word nearest to the cursor", ->
           editor.setText 'workspaceView'
           atom.commands.dispatch(eventDispatcher, 'change-case:upper')
+          waitsForPromise -> activationPromise
           expect(editor.getText()).toBe 'WORKSPACEVIEW'
 
         it "should select the word nearest to the cursor", ->
           editor.setText 'workspaceView'
           atom.commands.dispatch(eventDispatcher, 'change-case:upper')
+          waitsForPromise -> activationPromise
           expect(editor.getSelectedText()).toBe 'WORKSPACEVIEW'
 
       describe "when selected text length changes after changing its case", ->
@@ -74,6 +82,7 @@ describe "changing case", ->
           editor.selectAll()
 
           atom.commands.dispatch(eventDispatcher, 'change-case:upper')
+          waitsForPromise -> activationPromise
           expect(editor.getSelectedText()).toBe 'WORKSPACE.VIEW'
 
           atom.commands.dispatch(eventDispatcher, 'change-case:camel')
@@ -92,6 +101,7 @@ describe "changing case", ->
           editor.splitSelectionsIntoLines()
 
           atom.commands.dispatch(eventDispatcher, 'change-case:camel')
+          waitsForPromise -> activationPromise
 
           expect(editor.lineTextForBufferRow(0)).toContain 'theQuickBrownFox'
           expect(editor.lineTextForBufferRow(1)).toContain 'jumpsOverTheLazyDog'
@@ -105,6 +115,7 @@ describe "changing case", ->
           editor.splitSelectionsIntoLines()
 
           atom.commands.dispatch(eventDispatcher, 'change-case:camel')
+          waitsForPromise -> activationPromise
 
           expect(editor.lineTextForBufferRow(0)).toContain 'theQuickBrownFox'
           expect(editor.lineTextForBufferRow(1)).toContain 'jumpsOverTheLazyDog'
