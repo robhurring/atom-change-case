@@ -16,6 +16,7 @@ Commands =
   title: 'titleCase'
   upper: 'upperCase'
   upperFirst: 'upperCaseFirst'
+  kebab: 'paramCase'
 
 module.exports =
   activate: (state) ->
