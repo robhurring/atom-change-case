@@ -1,7 +1,7 @@
 {
   "name": "change-case",
   "main": "./lib/change-case",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "Change the case of selected text using node-change-case",
   "repository": "https://github.com/robhurring/atom-change-case.git",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "change-case": "~3.0.0"
   },
   "activationCommands": {
-    "atom-workspace atom-text-editor":[
+    "atom-workspace atom-text-editor": [
       "change-case:camel",
       "change-case:constant",
       "change-case:dot",
