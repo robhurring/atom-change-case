@@ -9,10 +9,12 @@
   "contributors": [
     "Philip Blyth",
     "Sergey Fedorov",
-    "Timo Sand <timo.j.sand@gmail.com>"
+    "Timo Sand <timo.j.sand@gmail.com>",
+    "Moritz Kneilmann",
+    "李昕亮"
   ],
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">= 1.6.0 < 2.0.0"
   },
   "dependencies": {
     "change-case": "~3.0.0"
