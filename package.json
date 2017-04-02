@@ -18,5 +18,25 @@
   },
   "dependencies": {
     "change-case": "~3.0.0"
+  },
+  "activationCommands": {
+    "atom-workspace atom-text-editor":[
+      "change-case:camel",
+      "change-case:constant",
+      "change-case:dot",
+      "change-case:lower",
+      "change-case:lowerFirst",
+      "change-case:param",
+      "change-case:pascal",
+      "change-case:path",
+      "change-case:sentence",
+      "change-case:snake",
+      "change-case:switch",
+      "change-case:swap",
+      "change-case:title",
+      "change-case:upper",
+      "change-case:upperFirst",
+      "change-case:kebab"
+    ]
   }
 }

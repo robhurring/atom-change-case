@@ -18,6 +18,9 @@ Commands =
   upperFirst: 'upperCaseFirst'
   kebab: 'paramCase'
 
+# NOTE: New commands musst be added to the activationCommands
+# in the package.json
+
 module.exports =
   activate: (state) ->
     for command of Commands
