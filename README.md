@@ -12,6 +12,7 @@ A quick way to change the case of the current selection.
 * change-case:constant
 * change-case:dot
 * change-case:lower
+* change-case:lowerFirst
 * change-case:param
 * change-case:pascal
 * change-case:path
