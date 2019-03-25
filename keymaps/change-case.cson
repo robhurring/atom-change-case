@@ -11,6 +11,6 @@
   'cmd-k cmd-c': 'change-case:camel'
   'cmd-k cmd-s': 'change-case:snake'
 
-'.platform-win32 atom-workspace':
+'.platform-win32 atom-workspace, .platform-linux atom-workspace':
   'ctrl-k ctrl-c': 'change-case:camel'
   'ctrl-k ctrl-s': 'change-case:snake'
